@@ -13,6 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{asset('admin/plugins/fontawesome-free/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{asset('admin/plugins/toastr/toastr.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('admin/dist/css/adminlte.min.css')}}">
   @yield('style')
@@ -196,16 +197,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-               Categories Pages
+               Category Pages
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('categories.index')}}" class="nav-link active">
+                <a href="{{route('categories.index')}}" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Show Categories</p>
                 </a>
@@ -214,6 +215,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="{{route('categories.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Create Categories</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+              <li class="nav-item menu-open">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+               Country Pages
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('countries.index')}}" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Show Countries</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('countries.create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Create Countries</p>
                 </a>
               </li>
             </ul>
@@ -265,7 +289,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      yahya elsaftawi 
+      yahya elsaftawi
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
@@ -283,5 +307,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('admin/dist/js/adminlte.min.js')}}"></script>
 <script src="{{asset('js/sweet-alert.js')}}"></script>
 <script src="{{asset('js/axios.js')}}"></script>
+<script src="{{asset('admin/plugins/toastr/toastr.min.js')}}"></script>
+<script src="{{asset('js/crud.js')}}"></script>
 </body>
 </html>

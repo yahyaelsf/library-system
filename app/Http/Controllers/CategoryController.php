@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class CategoryController extends Controller
 {
@@ -106,11 +107,13 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $deleted = $category->delete();
-        if($deleted){
-            return response()->json(['title'=>'Deleted Successfully!','icon'=>'success']);
-        }else{
-            return response()->json(['title' => 'Deleted Failed!', 'icon' => 'danger']);
-        }
+        $is_deleted = $category->delete();
+        return response()->json(
+            [
+                'icon' => $is_deleted ? 'success' : 'danger',
+                'title' => $is_deleted ? 'Deleted Successfuly' : 'Deleted Faild',
+            ],
+            $is_deleted ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST
+        );
     }
 }

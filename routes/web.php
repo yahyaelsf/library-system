@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CountryController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,5 @@ Route::get('/', function () {
 });
 Route::prefix('admin')->group(function(){
  Route::resource('categories', CategoryController::class);
+ Route::resource('countries', CountryController::class);
 });

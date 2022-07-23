@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\BookController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,5 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function(){
  Route::resource('categories', CategoryController::class);
  Route::resource('countries', CountryController::class);
+Route::resource('books', BookController::class);
 });

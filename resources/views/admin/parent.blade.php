@@ -196,7 +196,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
+          <li class="nav-item ">
             <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -219,7 +219,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
-              <li class="nav-item menu-open">
+              <li class="nav-item ">
             <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -238,6 +238,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="{{route('countries.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Create Countries</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+           </li>
+              <li class="nav-item ">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+               Books Pages
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+             <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('books.index')}}" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Show Books</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('books.create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Create Books</p>
                 </a>
               </li>
             </ul>
@@ -309,5 +333,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('js/axios.js')}}"></script>
 <script src="{{asset('admin/plugins/toastr/toastr.min.js')}}"></script>
 <script src="{{asset('js/crud.js')}}"></script>
+@yield('script')
 </body>
 </html>

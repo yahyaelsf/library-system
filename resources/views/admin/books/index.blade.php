@@ -1,19 +1,13 @@
 @extends('admin.parent')
-@section('title', 'Categories')
+@section('title', 'Books')
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Categories Table</h3>
+                    <h3 class="card-title">Books Table</h3>
                 </div>
-                @if (session()->has('message'))
-                    <div class="alert alert-success alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <h5><i class="icon fas fa-check"></i> Success!</h5>
-                        {{ session()->get('message') }}
-                    </div>
-                @endif
+
                 <!-- /.card-header -->
                 <div class="card-body">
                     <table class="table table-bordered">
@@ -21,34 +15,37 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Books</th>
-                                <th>Description</th>
-                                <th>Visible</th>
+                                <th>Active</th>
+                                <th>Category</th>
+                                <th>Language</th>
+                                <th>Year</th>
+                                <th>Quantity</th>
                                 <th>Created_At</th>
                                 <th>Updated_At</th>
                                 <th>Settings</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $category)
+                            @foreach ($data as $book)
                                 <tr>
-                                    <td>{{ $category->id }}</td>
-                                    <td>{{ $category->name }}</td>
-                                    <td><span
-                                            class="badge bg-info">{{$category->books_count }} Books</span>
+                                    <td>{{ $book->id }}</td>
+                                    <td>{{ $book->name }}</td>
+                                    <td>
+                                        <span
+                                            class="badge @if ($book->active == 0) bg-danger @else bg-success @endif">{{ $book->active_name }}</span>
                                     </td>
-                                    <td>{{ $category->description }}</td>
-                                    <td><span
-                                            class="badge @if ($category->is_visible == 0) bg-danger @else bg-success @endif">{{ $category->visible_status }}</span>
-                                    </td>
-                                    <td>{{ $category->created_at }}</td>
-                                    <td>{{ $category->updated_at }}</td>
+                                    <td>{{ $book->category->name }}</td>
+                                    <td>{{ $book->language_name }}</td>
+                                    <td>{{ $book->year }}</td>
+                                    <td>{{ $book->quantity }}</td>
+                                    <td>{{ $book->created_at }}</td>
+                                    <td>{{ $book->updated_at }}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-info">
+                                            <a href="{{ route('books.edit', $book->id) }}" class="btn btn-info">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <a onclick="destroy({{ $category->id }},this,'/admin/categories/')" class="btn btn-danger">
+                                            <a onclick="destroy({{ $book->id }},this , '/admin/books/')" class="btn btn-danger">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>

@@ -11,4 +11,7 @@ class Category extends Model
     public function getVisibleStatusAttribute(){
         return $this->is_visible ? 'visible' : 'hidden';
     }
+    public function books(){
+        return $this->hasMany(Book::class,'category_id','id');
+    }
 }

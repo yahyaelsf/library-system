@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-      $data=Category::all();
+      $data=Category::withCount('books')->get();
       return view('admin.categories.index',['data'=>$data]);
     }
 
